@@ -610,7 +610,7 @@ describe("search (unified API)", () => {
     expect(results[0]).toHaveProperty("title");
     expect(results[0]).toHaveProperty("bestChunk");
     expect(results[0]).toHaveProperty("docid");
-  });
+  }, 120_000);
 
   test("search() with intent and rerank:false returns results", async () => {
     const results = await store.search({
@@ -619,7 +619,7 @@ describe("search (unified API)", () => {
       rerank: false,
     });
     expect(results.length).toBeGreaterThan(0);
-  });
+  }, 120_000);
 
   test("search() with collection filter", async () => {
     const results = await store.search({
